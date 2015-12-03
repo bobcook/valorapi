@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reciept: MyString
+  platform: MyString
+  processed: false
+
+two:
+  reciept: MyString
+  platform: MyString
+  processed: false

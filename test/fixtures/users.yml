@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  last_login_date: 2015-12-03
+  in_game_currency: 1.5
+  locale: MyString
+  ban: false
+  email_validated: false
+  client_version: 1.5
+  player_name: MyString
+
+two:
+  email: MyString
+  last_login_date: 2015-12-03
+  in_game_currency: 1.5
+  locale: MyString
+  ban: false
+  email_validated: false
+  client_version: 1.5
+  player_name: MyString

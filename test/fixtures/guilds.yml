@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  guild_tag: MyString
+  description: MyString
+  welcome_message_subject: MyString
+  welcome_message_description: MyString
+
+two:
+  name: MyString
+  guild_tag: MyString
+  description: MyString
+  welcome_message_subject: MyString
+  welcome_message_description: MyString
