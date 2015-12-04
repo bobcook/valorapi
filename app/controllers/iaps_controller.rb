@@ -46,6 +46,6 @@ class IapsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def iap_params
-      params.require(:iap).permit(:reciept, :platform, :processed)
+      params.require(:iap).permit(:reciept, :platform, :processed, :user_id)
     end
 end

@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 20151203222058) do
 
   create_table "forums", force: :cascade do |t|
     t.string   "name"
+    t.integer  "guild_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["guild_id"], name: "index_forums_on_guild_id", using: :btree
   end
 
   create_table "guilds", force: :cascade do |t|
@@ -28,16 +30,20 @@ ActiveRecord::Schema.define(version: 20151203222058) do
     t.string   "description"
     t.string   "welcome_message_subject"
     t.string   "welcome_message_description"
+    t.integer  "world_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["world_id"], name: "index_guilds_on_world_id", using: :btree
   end
 
   create_table "iaps", force: :cascade do |t|
     t.string   "reciept"
     t.string   "platform"
     t.boolean  "processed"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_iaps_on_user_id", using: :btree
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -54,8 +60,10 @@ ActiveRecord::Schema.define(version: 20151203222058) do
     t.string   "image"
     t.string   "icon"
     t.string   "description"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_titles_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,8 +84,10 @@ ActiveRecord::Schema.define(version: 20151203222058) do
     t.integer  "y"
     t.binary   "building_stats"
     t.integer  "score_value"
+    t.integer  "world_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["world_id"], name: "index_villages_on_world_id", using: :btree
   end
 
   create_table "world_configurations", force: :cascade do |t|
@@ -91,8 +101,10 @@ ActiveRecord::Schema.define(version: 20151203222058) do
     t.boolean  "tutorial_on"
     t.integer  "population_limit"
     t.integer  "respawn_limit"
+    t.integer  "world_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.index ["world_id"], name: "index_world_configurations_on_world_id", using: :btree
   end
 
   create_table "worlds", force: :cascade do |t|

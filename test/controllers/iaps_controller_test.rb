@@ -2,6 +2,7 @@ require 'test_helper'
 
 class IapsControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
     @iap = iaps(:one)
   end
 
@@ -12,7 +13,7 @@ class IapsControllerTest < ActionController::TestCase
 
   test "should create iap" do
     assert_difference('Iap.count') do
-      post :create, params: { iap: { platform: @iap.platform, processed: @iap.processed, reciept: @iap.reciept } }
+      post :create, params: { iap: { platform: @iap.platform, processed: @iap.processed, reciept: @iap.reciept, user_id: @user } }
     end
 
     assert_response 201
@@ -24,7 +25,7 @@ class IapsControllerTest < ActionController::TestCase
   end
 
   test "should update iap" do
-    patch :update, params: { id: @iap, iap: { platform: @iap.platform, processed: @iap.processed, reciept: @iap.reciept } }
+    patch :update, params: { id: @iap, iap: { platform: @iap.platform, processed: @iap.processed, reciept: @iap.reciept, user_id: @user } }
     assert_response 200
   end
 

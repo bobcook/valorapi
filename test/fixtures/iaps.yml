@@ -4,8 +4,10 @@ one:
   reciept: MyString
   platform: MyString
   processed: false
+  user_id: 1
 
 two:
   reciept: MyString
   platform: MyString
   processed: false
+  user_id: 1

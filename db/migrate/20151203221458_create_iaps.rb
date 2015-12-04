@@ -4,6 +4,7 @@ class CreateIaps < ActiveRecord::Migration
       t.string :reciept
       t.string :platform
       t.boolean :processed
+      t.belongs_to :user, index: true
 
       t.timestamps
     end

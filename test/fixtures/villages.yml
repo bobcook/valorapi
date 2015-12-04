@@ -2,12 +2,14 @@
 
 one:
   x: 1
-  'y': 1
-  building_stats: 
+  y: 1
+  building_stats:
   score_value: 1
+  world_id: 1
 
 two:
   x: 1
-  'y': 1
-  building_stats: 
+  y: 1
+  building_stats:
   score_value: 1
+  world_id: 1

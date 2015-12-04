@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TitlesControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
     @title = titles(:one)
   end
 
@@ -12,7 +13,7 @@ class TitlesControllerTest < ActionController::TestCase
 
   test "should create title" do
     assert_difference('Title.count') do
-      post :create, params: { title: { description: @title.description, icon: @title.icon, image: @title.image, name: @title.name } }
+      post :create, params: {title: { description: @title.description, icon: @title.icon, image: @title.image, name: @title.name, user_id: @user } }
     end
 
     assert_response 201
@@ -24,7 +25,7 @@ class TitlesControllerTest < ActionController::TestCase
   end
 
   test "should update title" do
-    patch :update, params: { id: @title, title: { description: @title.description, icon: @title.icon, image: @title.image, name: @title.name } }
+    patch :update, params: { id: @title, title: { description: @title.description, icon: @title.icon, image: @title.image, name: @title.name, user_id: @user } }
     assert_response 200
   end
 

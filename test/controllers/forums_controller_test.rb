@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ForumsControllerTest < ActionController::TestCase
   setup do
+    @guild = guilds(:one)
     @forum = forums(:one)
   end
 
@@ -12,7 +13,7 @@ class ForumsControllerTest < ActionController::TestCase
 
   test "should create forum" do
     assert_difference('Forum.count') do
-      post :create, params: { forum: { name: @forum.name } }
+      post :create, params: { forum: { name: @forum.name, guild_id: @guild } }
     end
 
     assert_response 201
@@ -24,7 +25,7 @@ class ForumsControllerTest < ActionController::TestCase
   end
 
   test "should update forum" do
-    patch :update, params: { id: @forum, forum: { name: @forum.name } }
+    patch :update, params: { id: @forum, forum: { name: @forum.name, guild_id: @guild } }
     assert_response 200
   end
 

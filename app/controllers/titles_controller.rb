@@ -46,6 +46,6 @@ class TitlesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def title_params
-      params.require(:title).permit(:name, :image, :icon, :description)
+      params.require(:title).permit(:name, :image, :icon, :description, :user_id)
     end
 end

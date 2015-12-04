@@ -2,6 +2,7 @@ require 'test_helper'
 
 class VillagesControllerTest < ActionController::TestCase
   setup do
+    @world = worlds(:one)
     @village = villages(:one)
   end
 
@@ -12,7 +13,7 @@ class VillagesControllerTest < ActionController::TestCase
 
   test "should create village" do
     assert_difference('Village.count') do
-      post :create, params: { village: { building_stats: @village.building_stats, score_value: @village.score_value, x: @village.x, y: @village.y } }
+      post :create, params: { village: { building_stats: @village.building_stats, score_value: @village.score_value, x: @village.x, y: @village.y, world_id: @world } }
     end
 
     assert_response 201
@@ -24,7 +25,7 @@ class VillagesControllerTest < ActionController::TestCase
   end
 
   test "should update village" do
-    patch :update, params: { id: @village, village: { building_stats: @village.building_stats, score_value: @village.score_value, x: @village.x, y: @village.y } }
+    patch :update, params: { id: @village, village: { building_stats: @village.building_stats, score_value: @village.score_value, x: @village.x, y: @village.y, world_id: @world } }
     assert_response 200
   end
 

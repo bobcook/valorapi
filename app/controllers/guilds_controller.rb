@@ -46,6 +46,6 @@ class GuildsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def guild_params
-      params.require(:guild).permit(:name, :guild_tag, :description, :welcome_message_subject, :welcome_message_description)
+      params.require(:guild).permit(:name, :guild_tag, :description, :welcome_message_subject, :welcome_message_description, :world_id)
     end
 end

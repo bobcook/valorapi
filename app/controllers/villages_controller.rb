@@ -46,6 +46,6 @@ class VillagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def village_params
-      params.require(:village).permit(:x, :y, :building_stats, :score_value)
+      params.require(:village).permit(:x, :y, :building_stats, :score_value, :world_id)
     end
 end

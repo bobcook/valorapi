@@ -5,6 +5,7 @@ class CreateTitles < ActiveRecord::Migration
       t.string :image
       t.string :icon
       t.string :description
+      t.belongs_to :user, index: true
 
       t.timestamps
     end

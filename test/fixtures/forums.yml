@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  guild_id: 1
 
 two:
   name: MyString
+  guild_id: 1
