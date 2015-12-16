@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203222058) do
+ActiveRecord::Schema.define(version: 20151216175431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "buildings", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "village_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_buildings_on_village_id", using: :btree
+  end
+
+  create_table "construction_requests", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "village_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_construction_requests_on_village_id", using: :btree
+  end
 
   create_table "forums", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +71,22 @@ ActiveRecord::Schema.define(version: 20151203222058) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "resources", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "village_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_resources_on_village_id", using: :btree
+  end
+
+  create_table "scholars", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "village_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_scholars_on_village_id", using: :btree
+  end
+
   create_table "titles", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
@@ -64,6 +96,14 @@ ActiveRecord::Schema.define(version: 20151203222058) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_titles_on_user_id", using: :btree
+  end
+
+  create_table "troops", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "village_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_troops_on_village_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -113,4 +153,9 @@ ActiveRecord::Schema.define(version: 20151203222058) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "buildings", "villages"
+  add_foreign_key "construction_requests", "villages"
+  add_foreign_key "resources", "villages"
+  add_foreign_key "scholars", "villages"
+  add_foreign_key "troops", "villages"
 end
