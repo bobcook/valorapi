@@ -12,6 +12,7 @@ gem 'puma', '~> 2.15', '>= 2.15.3'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+gem 'rails_12factor'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
