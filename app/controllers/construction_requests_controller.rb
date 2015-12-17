@@ -46,6 +46,7 @@ class ConstructionRequestsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def construction_request_params
-      params.require(:construction_request).permit(:name, :village_id)
+      params.require(:construction_request).permit(:name, :village_id, :start_time, :date_time,
+        :construction_time_in_seconds, :building_current_level)
     end
 end
