@@ -11,7 +11,7 @@ class CreateWorldConfigurations < ActiveRecord::Migration
       t.boolean :tutorial_on
       t.integer :population_limit
       t.integer :respawn_limit
-      t.belongs_to :world, index: true
+      t.references :world, index: true, foreign_key: true
 
       t.timestamps
     end

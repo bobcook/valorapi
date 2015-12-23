@@ -1,3 +1,3 @@
 class WorldConfiguration < ActiveRecord::Base
-  has_many :worlds
+  has_many :worlds, dependent: :destroy
 end

@@ -6,7 +6,7 @@ class CreateGuilds < ActiveRecord::Migration
       t.string :description
       t.string :welcome_message_subject
       t.string :welcome_message_description
-      t.belongs_to :world, index: true
+      t.references :world, index: true, foreign_key: true
 
       t.timestamps
     end

@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :email_validated
       t.float :client_version
       t.string :player_name
+      t.references :world, index: true, foreign_key: true
 
       t.timestamps
     end

@@ -5,7 +5,7 @@ class CreateVillages < ActiveRecord::Migration
       t.integer :y
       t.binary :building_stats
       t.integer :score_value
-      t.belongs_to :world, index: true
+      t.references :world, index: true, foreign_key: true
 
       t.timestamps
     end

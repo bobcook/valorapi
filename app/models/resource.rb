@@ -1,3 +1,3 @@
 class Resource < ActiveRecord::Base
-  belongs_to :village
+  belongs_to :village, dependent: :destroy
 end

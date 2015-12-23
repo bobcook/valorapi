@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :worlds
-  has_many :guilds
-  has_many :notifications
-  has_many :titles
-  has_many :iaps
+  has_and_belongs_to_many :worlds
+  has_many :notifications, dependent: :destroy
+  has_many :titles, dependent: :destroy
+  has_many :iaps, dependent: :destroy
 end

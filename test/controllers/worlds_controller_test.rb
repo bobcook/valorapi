@@ -2,6 +2,7 @@ require 'test_helper'
 
 class WorldsControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
     @world = worlds(:one)
   end
 
@@ -24,7 +25,7 @@ class WorldsControllerTest < ActionController::TestCase
   end
 
   test "should update world" do
-    patch :update, params: { id: @world, world: { name: @world.name } }
+    patch :update, params: { id: @world, world: { name: @world.name, user_id: @world.user_id } }
     assert_response 200
   end
 

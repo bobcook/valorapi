@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.2.3"
+ruby "2.2.4"
 
 gem 'rails', github: "rails/rails"
 gem 'sprockets-rails', github: "rails/sprockets-rails"
@@ -9,6 +9,7 @@ gem 'sass-rails', github: "rails/sass-rails"
 gem 'arel', github: "rails/arel"
 gem 'rack', github: "rack/rack"
 gem 'puma', '~> 2.15', '>= 2.15.3'
+gem 'rails-erd'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
@@ -31,6 +32,7 @@ gem 'active_model_serializers', '~> 0.10.0.rc2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry-rails'
 end
 
 group :development do

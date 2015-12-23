@@ -46,6 +46,6 @@ class WorldsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def world_params
-      params.require(:world).permit(:name)
+      params.require(:world).permit(:name, :user_id)
     end
 end

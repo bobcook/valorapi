@@ -7,6 +7,7 @@ one:
   welcome_message_subject: MyString
   welcome_message_description: MyString
   world_id: 1
+  notification_id: 1
 
 two:
   name: MyString
@@ -15,3 +16,4 @@ two:
   welcome_message_subject: MyString
   welcome_message_description: MyString
   world_id: 1
+  notification_id: 1

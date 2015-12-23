@@ -46,6 +46,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:email, :last_login_date, :in_game_currency, :locale, :ban, :email_validated, :client_version, :player_name)
+      params.require(:user).permit(:email, :last_login_date, :in_game_currency, :locale, :ban, :email_validated, :client_version, :player_name, :world_id)
     end
 end

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   setup do
+    @world = worlds(:one)
     @user = users(:one)
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216214914) do
+ActiveRecord::Schema.define(version: 20151222223554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 20151216214914) do
 
   create_table "construction_requests", force: :cascade do |t|
     t.string   "name"
-    t.integer  "village_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
     t.datetime "start_time"
     t.datetime "date_time"
     t.integer  "construction_time_in_seconds"
     t.integer  "building_current_level"
+    t.integer  "village_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["village_id"], name: "index_construction_requests_on_village_id", using: :btree
   end
 
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20151216214914) do
     t.integer  "world_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "notification_id"
+    t.index ["notification_id"], name: "index_guilds_on_notification_id", using: :btree
     t.index ["world_id"], name: "index_guilds_on_world_id", using: :btree
   end
 
@@ -73,6 +75,8 @@ ActiveRecord::Schema.define(version: 20151216214914) do
     t.date     "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
   create_table "resources", force: :cascade do |t|
@@ -119,8 +123,17 @@ ActiveRecord::Schema.define(version: 20151216214914) do
     t.boolean  "email_validated"
     t.float    "client_version"
     t.string   "player_name"
+    t.integer  "world_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "notification_id"
+    t.index ["notification_id"], name: "index_users_on_notification_id", using: :btree
+    t.index ["world_id"], name: "index_users_on_world_id", using: :btree
+  end
+
+  create_table "users_worlds", id: false, force: :cascade do |t|
+    t.integer "user_id",  null: false
+    t.integer "world_id", null: false
   end
 
   create_table "villages", force: :cascade do |t|
@@ -153,13 +166,29 @@ ActiveRecord::Schema.define(version: 20151216214914) do
 
   create_table "worlds", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "world_configuration_id"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_worlds_on_user_id", using: :btree
+    t.index ["world_configuration_id"], name: "index_worlds_on_world_configuration_id", using: :btree
   end
 
   add_foreign_key "buildings", "villages"
   add_foreign_key "construction_requests", "villages"
+  add_foreign_key "forums", "guilds"
+  add_foreign_key "guilds", "notifications"
+  add_foreign_key "guilds", "worlds"
+  add_foreign_key "iaps", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "resources", "villages"
   add_foreign_key "scholars", "villages"
+  add_foreign_key "titles", "users"
   add_foreign_key "troops", "villages"
+  add_foreign_key "users", "notifications"
+  add_foreign_key "users", "worlds"
+  add_foreign_key "villages", "worlds"
+  add_foreign_key "world_configurations", "worlds"
+  add_foreign_key "worlds", "users"
+  add_foreign_key "worlds", "world_configurations"
 end
