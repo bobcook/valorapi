@@ -4,7 +4,6 @@ class WorldsController < ApplicationController
   # GET /worlds
   def index
     @worlds = World.all
-
     render json: @worlds
   end
 
